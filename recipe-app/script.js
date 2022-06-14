@@ -38,7 +38,6 @@ function addMeal(mealData, random = false){
  
     const meal = document.createElement(`div`);
     meal.classList.add('meal');
-
     // console.log(mealData);
     meal.innerHTML = `
         <div class="meal-header">
@@ -68,7 +67,13 @@ function addMeal(mealData, random = false){
         }
         fetchFavMeals();
     });
-    meal.addEventListener("click", ()=>{
+    // show meal when click on image or 1st child
+    meal_header = meal.getElementsByClassName('meal-header')[0];
+    meal_body_h4 = meal.getElementsByClassName('meal-body')[0].getElementsByTagName("h4")[0];
+    meal_header.addEventListener("click", ()=>{
+        showMealInfo(mealData);
+    })
+    meal_body_h4.addEventListener("click", ()=>{
         showMealInfo(mealData);
     })
     mealsEl.appendChild(meal);
@@ -98,10 +103,10 @@ function getMealsFromLS(){
     }
 }
 function addMealFav(mealData){
- 
     const favMeal = document.createElement(`li`);
     favMeal.innerHTML = `
         <img 
+            class = "mini-img"
             src="${mealData.strMealThumb}"
             alt="${mealData.strMeal}"
         />
@@ -114,9 +119,11 @@ function addMealFav(mealData){
         fetchFavMeals();
     });
 
-    favMeal.addEventListener("click", ()=>{
+    mini_img = favMeal.getElementsByTagName("img")[0]
+    mini_img.addEventListener("click", ()=>{
         showMealInfo(mealData);
     });
+
      
     favoriteContainer.appendChild(favMeal);
 }
@@ -138,6 +145,16 @@ function showMealInfo(mealData){
     // clean the perious meal info
     mealInfoEl.innerHTML = "";
     const meal = document.createElement('div');
+
+    //Show the meal ingredients
+    const ingredients = [] 
+    for(let i=1; i<=20; i++ ){
+        if(mealData['strIngredient'+i]){
+            ingredients.push(`${mealData['strIngredient'+i]} / ${mealData['strMeasure'+i]}`);
+        }else{
+            break;
+        }
+    }
     meal.innerHTML = `
         <h1>${mealData.strMeal}</h1>
         <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}" />
@@ -145,6 +162,10 @@ function showMealInfo(mealData){
         <p>
         ${mealData.strInstructions}
         </p>
+        <h3>Ingredients:</h3>
+        <ul>
+            ${ingredients.map(ing =>`<li>${ing}</li>`).join("")}
+        </ul>
         
     `;
     mealInfoEl.appendChild(meal);
