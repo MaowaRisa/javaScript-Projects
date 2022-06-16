@@ -42,6 +42,7 @@ form{
     list-style-type: none;
 }
 .todos li{
+    position: relative;
     border-top: 1px solid #e5e5e5;
     font-size: 1rem;
     padding: 0.5rem 0.5rem;
@@ -55,11 +56,11 @@ form{
 }
 .todos li span{
     color: transparent;
+    position: absolute;
+    right: 2%;
 }
 .todos li:hover span{
     color: rgb(189, 49, 49);
-    position: absolute;
-    left: 70%;
 }
 small{
     text-align: center;
