@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@300;400;600&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    background: rgb(174,174,238);
+background: linear-gradient(90deg, rgba(174,174,238,1) 0%, rgba(27,68,117,1) 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Poppins", "sans-serif";
+}
+header{
+    background: rgb(47,57,136);
+background: linear-gradient(141deg, rgba(47,57,136,1) 0%, rgba(53,63,138,1) 0%, rgba(19,31,122,1) 0%, rgba(121,126,130,1) 100%);
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+header h3{
+    color: #eee;
+    margin-top: 0;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.search{
+    background-color: transparent;
+    border: 2px solid #3e4168;
+    outline: none;
+    color: #eee;
+    border-radius: 50px;
+    font-family: inherit;
+    padding: 0.5rem 1rem;
+}
+.search::placeholder{
+    color: rgb(83, 83, 85);
+}
+.movie{
+    background: rgb(47,57,136);
+background: linear-gradient(141deg, rgba(47,57,136,1) 0%, rgba(53,63,138,1) 0%, rgba(19,31,122,1) 0%, rgba(121,126,130,1) 100%);
+    border-radius: 3px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin: 1rem;
+    width: 300px;
+}
+.movie img{
+    width: 100%;
+}
+.movie-info{
+    color: #eee;
+    text-shadow: 1px 1px #4d4b4b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+
+}
+.movie-info h3{
+    margin: 0;
+}
+.movie-info span{
+    background-color: #0a59a375;
+    border-radius: 3px;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+}
+.movie-info span.green{
+    color: rgb(60, 186, 60);
+}
+.movie-info span.orange{
+    color: orange;
+}
+.movie-info span.red{
+    color: rgb(186, 59, 59);
+}
+.overview{
+    background: rgb(47,57,136);
+background: linear-gradient(141deg, rgba(47,57,136,1) 0%, rgba(53,63,138,1) 0%, rgba(19,31,122,1) 0%, rgba(121,126,130,1) 100%);
+    color: #eee;
+    position: absolute;
+    max-height: 100%;
+    overflow: auto;
+    padding: 2rem;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in;
+}
+.overview h4{
+    margin-top: 0;
+}
+.movie:hover .overview{
+    transform: translateY(0);
+}
