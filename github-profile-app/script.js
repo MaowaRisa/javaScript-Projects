@@ -4,7 +4,7 @@ const main = document.getElementById("main");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
-
+// getUser("florinpop17");
 async function getUser(username){
     const resp = await fetch(APIURL + username);
     const resData = await resp.json();
@@ -47,7 +47,7 @@ function createUserCard(user){
 }
 function addReposToCard(repos){
     const reposEl = document.getElementById("repos");
-    repos.forEach(repo =>{
+    repos.sort((a, b)=> b.stargazers_count - a.stargazers_count).slice(0,9).forEach(repo =>{
         const {html_url, name} = repo;
         const repoEl = document.createElement('a');
         repoEl.classList.add('repo');
@@ -55,6 +55,7 @@ function addReposToCard(repos){
         repoEl.href= html_url;
         repoEl.target = '_blank';
         repoEl.innerText = name;
+
         reposEl.appendChild(repoEl)
     });
 }
