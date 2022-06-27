@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@300;400;600&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    background: linear-gradient(300deg, rgb(70, 113, 187), rgb(150, 145, 145));
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+input{
+    background-color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    min-width: 300px;
+}
+input:focus{
+    outline: none;
+}
+.weather{
+    margin-top: 2rem;
+    font-size: 1rem;
+    text-align: center;
+}
+.weather h2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+#weather-table{
+    border-collapse: collapse;
+
+}
+#weather-table th, td{
+    border: 1px solid rgb(78, 73, 73);
+    padding: 1rem;
+}
